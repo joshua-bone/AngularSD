@@ -100,22 +100,7 @@ app.controller('todosTableController', ['$scope', 'todoService', function($scope
 
 app.component('todosTable',
 {
-  template: `
-              <button class='btn btn-default' ng-click="toggleShowComplete()">{{$ctrl.showComplete ? 'Hide' : 'Show'}} Completed Todos</button>
-              <table class="table-striped" style="width : 100%">
-               <thead>
-                 <th>Todo</th>
-                 <th>Mark</th>
-                 <th>Delete</th>
-               </thead>
-               <tbody>
-                 <tr ng-repeat="todo in $ctrl.boundData | orderBy: 'task' | filter: filterByCompleted">
-                   <td ng-style="todo.completed && {'text-decoration' : 'line-through'}">{{todo.task}}</td>
-                   <td><input type="checkbox" ng-model="todo.completed"</td>
-                   <td><button class="btn-sm btn-danger" ng-click="remove(todo.id)">Delete</button></td>
-                 </tr>
-               </tbody>
-             </table>`,
+  templateUrl: 'todosTable.html',
   controller: 'todosTableController',
   bindings:{
     boundData: '='
